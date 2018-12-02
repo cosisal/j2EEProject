@@ -3,6 +3,7 @@
 	<name>ws</name>
 	<comment></comment>
 	<projects>
+		<project>jpaProject</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

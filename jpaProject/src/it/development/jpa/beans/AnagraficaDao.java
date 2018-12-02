@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 
 import it.development.jpa.entities.Anagrafica;
 
@@ -16,8 +16,8 @@ import it.development.jpa.entities.Anagrafica;
 @LocalBean
 public class AnagraficaDao implements AnagraficaDaoRemote {
 
-	@PersistenceUnit(name="anagrafica")
-	EntityManager em;
+	@PersistenceContext(name="anagrafica")
+	private EntityManager em;
 	
     public AnagraficaDao() {
         // TODO Auto-generated constructor stub
@@ -56,8 +56,25 @@ public class AnagraficaDao implements AnagraficaDaoRemote {
 
 	@Override
 	public List<Anagrafica> retrieveAllAnagrafica() {
+		@SuppressWarnings("unchecked")
 		List<Anagrafica> anagraficaList = em.createQuery("SELECT a FROM anagrafica a").getResultList();
 		return anagraficaList;
+	}
+
+	@Override
+	public String findGiorgia() {
+		
+		return "Giorgia";
+	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
 	} 
+	
+	
 
 }

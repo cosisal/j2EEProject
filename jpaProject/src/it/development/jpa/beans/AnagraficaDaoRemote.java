@@ -15,5 +15,6 @@ public interface AnagraficaDaoRemote {
 	public Anagrafica findAnagrafica(Anagrafica anagrafica);
 	public List<Anagrafica> retrieveAnagraficaByName(String name);
 	public List<Anagrafica> retrieveAllAnagrafica();
+	public String findGiorgia();
 	
 }
